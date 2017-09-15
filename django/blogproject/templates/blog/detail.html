@@ -21,6 +21,7 @@
                     <li>
                         <a href="{% url 'blog:tag' tag.pk %}">#{{tag.name}}</a>
                     </li>
+                {% endfor%}
             </ul>
         </div>
     </div>
@@ -69,8 +70,13 @@
             无评论
             {% endfor %}
         </ul>
-
     </div>
 </section>
-{% endfor %}
 {% endblock main %}
+
+{% block toc %}
+<div class="widget widget-content">
+    <h3 class="widget-title">文章目录</h3>
+    {{ post.toc|safe }}
+</div>
+{% endblock toc %}
